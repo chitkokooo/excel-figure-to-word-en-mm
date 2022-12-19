@@ -38,3 +38,7 @@ Microsoft Excel တွင် ဂဏန်းရိုက်လျှင် တ�
 
 `A1` သည် နမူနာ ပြထားသော Cell ဖြစ်ပြီး နှစ်သက်ရာ Cell/Number နှင့် ပြောင်းလဲ အသုံးပြုနိုင်သည်။
 
+
+## Resources
+[Pyiduangsu Font](https://www.mmunicode.org/wiki/pyidaungsu-font/)
+
