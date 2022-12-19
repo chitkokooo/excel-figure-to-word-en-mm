@@ -1,6 +1,6 @@
 ' ******************************************************************
 '                Author: Chit Ko Ko Oo
-'                 Date: 29-Aug-2016
+'                 Date: 19-12-2022
 '
 '  Complete number to corresponding (myanmar) letter converter
 '
