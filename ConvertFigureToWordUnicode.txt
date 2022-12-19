@@ -1,0 +1,119 @@
+' ******************************************************************
+'                Author: Chit Ko Ko Oo
+'                 Date: 29-Aug-2016
+'
+'  Complete number to corresponding (myanmar) letter converter
+'
+' excel sheet, named "hidden_var", must be created and printed text must be written in Column "C"
+'
+' Just call ConvertFigureToWordUnicode(number_arg) from excel cell,
+' where number_arg is desired number(figure) to print out text(word)
+' ******************************************************************
+
+
+'for example 123.45 => kyats- tis yar hnis sal thone hnint pyas- lay sal ngar titi
+Function ConvertFigureToWordUnicode(numbers)
+
+    Dim Result As String
+    Dim DecimalPlace, pyas
+    
+        
+    pyas = 0
+    numbers = Trim(Str(numbers)) 'Remove extra characters
+        
+    'Check and Separate Kyats and Pyas
+    DecimalPlace = InStr(numbers, ".")
+    
+    If DecimalPlace > 0 Then
+        numbers = Round(numbers, 2) ' Round pyas (decimal point) to two places exactly
+        pyas = Right(numbers, 2) ' extract pyas(decimal point)
+        numbers = Trim(Left(numbers, DecimalPlace - 1)) ' extract kyats
+    End If
+    
+    Result = Worksheets("hidden_var").Range("C19") & " " ' "Kyats- "
+    ' Separate between thaung and thein
+    If Len(numbers) > 5 Then
+        basic = Right(numbers, 5) ' below thein
+        super = Left(numbers, Len(numbers) - 5) ' above thein
+        Result = Result & CreateFigure(super) & Worksheets("hidden_var").Range("C16")
+    Else
+        basic = numbers ' no thein just up to thaung
+    End If
+    
+    Result = Result & CreateFigure(basic)
+    
+    ' Concat Pyas
+    If pyas > 0 Then
+        Result = Result & " " & Worksheets("hidden_var").Range("C20") & " " & CreateFigure(pyas)
+    End If
+    
+    Result = Result & " " & Worksheets("hidden_var").Range("C21") ' " Titi"
+    
+    ConvertFigureToWordUnicode = Result
+    
+End Function
+
+
+
+
+' Print Five Digit Segments
+' for example 12345 => tis thaung hnis htaung thone yar lay sel ngar
+Function CreateFigure(number)
+
+    Dim Place(1 To 10) As String
+    Dim Result As String
+    Place(1) = Worksheets("hidden_var").Range("C1") ' " Pyas" 'dummy
+    Place(2) = Worksheets("hidden_var").Range("C11") ' "" ' Khu, dummy
+    Place(3) = Worksheets("hidden_var").Range("C12") ' " Sel"
+    Place(4) = Worksheets("hidden_var").Range("C13") ' " Yar"
+    Place(5) = Worksheets("hidden_var").Range("C14") ' " Htaung"
+    Place(6) = Worksheets("hidden_var").Range("C15") ' " Thaung"
+    Place(7) = Worksheets("hidden_var").Range("C16") ' " Thein" 'dummy
+    
+    Dim Cnt As Integer
+    Dim Length As Long
+    NumLength = Len(number) ' NumLength shoud be maximum for 5
+    
+    For Cnt = 1 To NumLength
+    
+    ' Print khu, sal, yar, htaung, thaug value
+    If (Mid(number, Cnt, 1)) <> 0 Then
+        Result = Result & "" & GetDigit(Mid(number, Cnt, 1)) & Place(NumLength + 2 - Cnt)
+    End If
+    Next Cnt
+    CreateFigure = Result
+    
+End Function
+
+
+
+
+' Print Letter for correspondig number
+' for example, 1 => 'tis'
+Function GetDigit(number)
+
+    Dim NumText As String
+    
+    Select Case number
+        Case 1:
+            NumText = Worksheets("hidden_var").Range("C1") ' " Tis"
+        Case 2:
+            NumText = Worksheets("hidden_var").Range("C2") ' " Hnis"
+        Case 3:
+            NumText = Worksheets("hidden_var").Range("C3") ' " Thone"
+        Case 4:
+            NumText = Worksheets("hidden_var").Range("C4") ' " Lay"
+        Case 5:
+            NumText = Worksheets("hidden_var").Range("C5") ' " Ngar"
+        Case 6:
+            NumText = Worksheets("hidden_var").Range("C6") ' " Chauk"
+        Case 7:
+            NumText = Worksheets("hidden_var").Range("C7") ' " KhuNis"
+        Case 8:
+            NumText = Worksheets("hidden_var").Range("C8") ' " Shis"
+        Case 9:
+            NumText = Worksheets("hidden_var").Range("C9") ' " Koe"
+    End Select
+    GetDigit = NumText
+End Function
+
