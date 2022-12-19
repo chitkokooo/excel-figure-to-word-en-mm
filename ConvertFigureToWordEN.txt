@@ -1,6 +1,7 @@
 ' *******************************************************************************************************
 ' Codes are copied from the following websites and modified
 ' https://www.extendoffice.com/documents/excel/1446-excel-convert-change-numbers-to-words.html
+' Date: 19-12-2022
 ' ********************************************************************************************************
 
 Function ConvertFigureToWordEN(ByVal pNumber)
