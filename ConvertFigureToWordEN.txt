@@ -55,7 +55,7 @@ Select Case Cents
     Case Else
         Cents = " and Pyas- " & Cents
 End Select
-ConvertFigureToWordEN = Dollars & Cents
+ConvertFigureToWordEN = Dollars & Cents & " Only."
 End Function
 Function GetTens(pTens)
 Dim Result As String
