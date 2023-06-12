@@ -49,5 +49,5 @@ Microsoft Excel တွင် ဂဏန်းရိုက်လျှင် တ�
 [Pyiduangsu Font](https://www.mmunicode.org/wiki/pyidaungsu-font/)
 
 ## Youtube Video Tutorial
-[Excel Figure-to-Word Youtube Video](youtube.com/watch?v=uf49H02H7X4)
+[Excel Figure-to-Word Youtube Video](https://www.youtube.com/watch?v=uf49H02H7X4)
 
