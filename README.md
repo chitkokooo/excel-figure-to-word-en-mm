@@ -4,7 +4,7 @@ Microsoft Excel တွင် ဂဏန်းရိုက်လျှင် တ�
 ### လိုအပ်ချက်များ
 - Excel File သည် macro enabled file ဖြစ်သော `.xlsm` file ဖြစ်ရမည်။
 - Excel Options တွင် Macro File များကို run နိုင်ရန် ခွင့်ပြုပြီး ဖြစ်ရမည်။
-- `hidden_var` ဟု အမည်ပေးထားသော Excel Sheet တခု တည်ဆောက်ပြီး ဖော်ပြပါ information များ ထည့်သွင်းထားရမည်။ တည်ဆောက်ပြီး Hide လိုလုပ်က လုပ်ထားနိုင်သည်။
+- `hidden_var` ဟု အမည်ပေးထားသော Excel Sheet တခု တည်ဆောက်ပြီး ဖော်ပြပါ information များ ထည့်သွင်းထားရမည်။ တည်ဆောက်ပြီး Hide ထားလိုပါက Hide လုပ်ထားနိုင်သည်။
  
 ## hidden_var Excel Sheet
 <img src="https://github.com/chitkokooo/excel-figure-to-word-en-mm/blob/main/hidden_var.png" alt="hidden_var excel Sheet">
